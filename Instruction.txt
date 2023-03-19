@@ -1,0 +1,24 @@
+$pwd
+$ touch Dockerfile
+_____________________________contenue Dockerfile _______________________________
+FROM python
+WORKDIR /app4
+COPY . /app4
+CMD ["python","bmi.py"]
+$ docker run -it sha256:1a3db8a71034ec4cc736847dd8d1a1388c4325f2154c8c484338b061bfa38a36
+(1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
+Please choose: 2
+Please enter your height in feet
+Your height: 5
+Please enter your weight in pounds
+Your weight: 66
+Your body-mass-index: 12.889625113980644
+$ docker run --name Python-Container -it sha256:1a3db8a71034ec4cc736847dd8d1a1388c4325f2154c8c484338b061bfa38a36
+$ docker start -a -i Python-Container
+$ docker rm Python-Container
+$ docker rmi sha256:1a3db8a71034ec4cc736847dd8d1a1388c4325f2154c8c484338b061bfa38a36 -f
+$ docker build -t pythonimage:v1 .
+$ docker images
+REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
+pythonimage                   v1        1a3db8a71034   18 minutes ago      921MB
+$ docker run -i  --rm --name PythonContainer pythonimage:v1
